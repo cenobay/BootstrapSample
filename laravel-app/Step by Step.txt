@@ -1,0 +1,64 @@
+Step by Step
+
+
+1. composer create-project laravel/laravel projectName-app
+2. php artisan serve
+3. composer require laravel/ui
+4. php artisan ui bootstrap
+5. npm i bootstrap@5.3.2
+6. npm run dev
+7. php artisan make:view Product/index
+8. php artisan make:view Product/order
+9. php artisan make:model Product -cm
+10. php artisan make:model Order -cm
+11. php artisan storage:link
+12. set-up routes
+- Route::get('/', [\App\Http\Controllers\ProductController::class, 'index']);
+- Route::get('/products/{product}', [\App\Http\Controllers\ProductController::class, 'show']);
+- Route::post('/orders', [\App\Http\Controllers\OrderController::class, 'store']);
+13. set-up database migration - product table
+- $table->bigIncrements('id');
+- $table->string('product_name');
+- $table->bigInteger('quantity');
+- $table->string('unit');
+- $table->bigInteger('price');
+- $table->string('image_path');
+- $table->timestamps();
+14. set-up database migration - order table
+- $table->bigIncrements('id');
+- $table->string('buyer_name');
+- $table->unsignedBigInteger('quantity');
+- $table->bigInteger('price');
+- $table->unsignedBigInteger('mobile_number');
+- $table->unsignedBigInteger('product_id');
+- $table->foreign('product_id')->references('id')->on('products');
+- $table->timestamps();
+15. php artisan migrate
+16. set-up ProductController return view, index & show
+17. set-up sass
+- @vite(['resources/sass/app.scss', 'resources/js/app.js']);
+18. insert data
+18. set-up modal
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

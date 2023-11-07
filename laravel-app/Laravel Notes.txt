@@ -1,0 +1,35 @@
+Laravel Notes
+
+// create new laravel project
+composer create-project laravel/laravel example-app
+
+// change directory
+cd example-app
+
+// start hosting
+php artisan serve
+
+// for installing bootstrap
+composer require laravel/ui
+
+// install bootstrap
+php artisan ui bootstrap
+
+// bootstrap
+npm i bootstrap@5.3.2
+
+// check node installation
+# for node
+node -v
+
+# for npm
+npm -v
+
+// run bootstrap
+npm install
+npm run dev
+
+// php artisan storage:link
+
+<!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
